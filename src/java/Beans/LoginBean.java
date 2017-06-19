@@ -50,11 +50,15 @@ public class LoginBean {
         this.contra = contra;
     }
 
+    
+        
+    
     public String login() {
+        
         FacesContext context = FacesContext.getCurrentInstance();
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistence");
         EntityManager entitymanager = emfactory.createEntityManager();
-
+        
         Query query = entitymanager.createNamedQuery("Usuarios.findByUsuario", Usuarios.class);
         query.setParameter("pass", this.contra);
         query.setParameter("usuario", this.usuario);
